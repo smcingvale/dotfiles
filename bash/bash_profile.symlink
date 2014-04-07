@@ -1,0 +1,44 @@
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
+# shortcut to gits folder
+export GITS=~/Gits
+
+# don't put duplicate lines in the history
+# don't overwrite GNU Midnight Commander's setting of 'ignorespare'
+HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS 
+shopt -s checkwinsize
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo
+# credit: Zach Holman
+if [[ -a ~/.localrc ]]; then
+  source ~/.localrc
+fi
+
+# gather and source all .bash files
+for file in $DOTFILES/**/*.bash; do
+  echo $file
+done
+
+# source git completion function (assumes git's installed thru homebrew)
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
+# set-up the most bad-ass bash prompt ever
+# uses the git function sourced from above
+function prompt(){
+  local GREEN="\[\033[0;32m\]"
+  local CYAN="\[\033[0;36m\]"
+  local YELLOW="\[\033[0;33m\]"
+
+  export PS1="\n[\w]${GREEN}"' $(__git_ps1 "(%s)") '"\n${CYAN}\u ${YELLOW}-> \[\033[0m\]"
+}
+prompt

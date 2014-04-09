@@ -25,6 +25,7 @@ set nowrap                " don't wrap lines
 set sidescroll=1          " scroll right 1-character at a time for long lines
 set list                  " show newlines, etc.
 set cursorline            " highlight the cursor line
+set ruler                 " show the current position
 
 " ruby specifics
 au BufRead,BufNewFile *.thor set filetype=ruby " .thor files = .rb files

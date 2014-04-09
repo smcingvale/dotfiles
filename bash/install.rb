@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
 Dir['*.symlink'].each do |file|
-  File.symlink("#{file}", "~/.#{file[0, file.index('.')]}")
+  File.symlink("#{__dir__}/#{file}", "#{Dir.home}/.#{file[0, file.index('.')]}")
 end

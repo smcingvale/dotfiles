@@ -4,9 +4,9 @@
 # prompt the user to over-write.
 
 Dir['*.symlink'].each do |file|
-  git_symlink = "#{Dir.home}/.#{file[0, file.index('.')]}"
+  git_symlink = File.join("#{Dir.home}", ".#{file[0, file.index('.')]}")
 
   unless File.symlink?(git_symlink)
-    File.symlink("#{__dir__}/#{file}", "#{Dir.home}/.#{file[0, file.index('.')]}")
+    File.symlink(File.join("#{__dir__}", "#{file}"), git_symlink)
   end
 end

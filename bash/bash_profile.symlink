@@ -29,8 +29,10 @@ for file in $DOTFILES/**/*.bash; do
   echo $file
 done
 
-# source git completion function (assumes git's installed thru homebrew)
-source /usr/local/etc/bash_completion.d/git-completion.bash
+# source git functions (assumes git's installed thru homebrew)
+for file in /usr/local/etc/bash_completion.d/git-*; do
+  source $file
+done
 
 # set-up the most bad-ass bash prompt ever
 # uses the git function sourced from above

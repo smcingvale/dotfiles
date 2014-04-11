@@ -7,3 +7,4 @@
   vim-tbone: github.com/tpope/vim-tbone.git
   vim-eunuch: github.com/tpope/vim-eunuch.git
   vim-rbenv: github.com/tpope/vim-rbenv.git
+  vim-colors-solarized: github.com/altercation/vim-colors-solarized.git

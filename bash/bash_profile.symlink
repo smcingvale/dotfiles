@@ -36,6 +36,7 @@ done
 
 # set-up the most bad-ass bash prompt ever
 # uses the git function sourced from above
+export GIT_PS1_SHOWDIRTYSTATE=1
 function prompt(){
   local GREEN="\[\033[0;32m\]"
   local CYAN="\[\033[0;36m\]"

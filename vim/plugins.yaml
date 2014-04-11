@@ -1,0 +1,10 @@
+--- # list o' vim plugins
+  vim-sensible: github.com/tpope/vim-sensible.git
+  vim-sleuth: git://github.com/tpope/vim-sleuth.git
+  vim-fugitive: github.com/tpope/vim-fugitive.git
+  vim-surround: github.com/tpope/vim-surround.git
+  vim-commentary: github.com/tpope/vim-commentary.git
+  vim-tbone: github.com/tpope/vim-tbone.git
+  vim-eunuch: github.com/tpope/vim-eunuch.git
+  vim-rbenv: github.com/tpope/vim-rbenv.git
+  vim-colors-solarized: github.com/altercation/vim-colors-solarized.git

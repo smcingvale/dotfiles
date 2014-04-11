@@ -1,4 +1,3 @@
-" TODO: Install and init pathogen.
 " init pathogen
 call pathogen#infect()    " add plugins (~.vim/bundle/) to runtime path
 call pathogen#helptags()  " get crazy!

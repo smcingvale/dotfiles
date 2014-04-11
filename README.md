@@ -9,6 +9,12 @@
 
 ### Version History ###
 
+**0.2.0** (April 10, 2014)
+
+* Install vim-pathogen.
+* Specify vim plugins in `vim/plugins.yaml`  and install them with pathogen.
+* Use the solarized dark theme.
+
 **0.1.0** (April 9, 2014)
 
 * Initial public release.

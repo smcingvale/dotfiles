@@ -29,7 +29,7 @@ for file in $DOTFILES/**/*.bash; do
   echo $file
 done
 
-# source git functions (assumes git's installed thru homebrew)
+# source git functions (assumes git's installed thru boxen)
 for file in /usr/local/etc/bash_completion.d/git-*; do
   source $file
 done

@@ -26,7 +26,7 @@ fi
 
 # gather and source all .bash files
 for file in $DOTFILES/**/*.bash; do
-  echo $file
+  source $file
 done
 
 # source git functions (assumes git's installed thru boxen)

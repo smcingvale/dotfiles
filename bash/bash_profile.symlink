@@ -1,5 +1,5 @@
 # shortcut to this dotfiles path is $DOTFILES
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=~/Gits/dotfiles
 
 # shortcut to gits folder
 export GITS=~/Gits

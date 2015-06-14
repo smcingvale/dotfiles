@@ -45,3 +45,6 @@ function prompt(){
   export PS1="\n[\w]${GREEN}"' $(__git_ps1 "(%s)") '"\n${CYAN}\u ${YELLOW}-> \[\033[0m\]"
 }
 prompt
+
+# finally, source boxen's env.sh
+source /opt/boxen/env.sh

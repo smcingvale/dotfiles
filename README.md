@@ -2,12 +2,53 @@
 
 ~ is where the dotfiles are.
 
+## Boxen ##
+
+These dotfiles are installed by [my-boxen](https://github.com/smcingvale/my-boxen).  Here's the relevant snippet from `dotfiles.pp`:
+
+```
+  # setup .vim and vim plugins
+  $vim = "${home}/.vim"
+  file { [
+    "${vim}",
+    "${vim}/bundle",
+    "${vim}/autoload",
+  ]:
+    ensure => directory,
+  }
+
+  # puppet doesn't like grabbing files like this...
+  exec { 'retrieve_pathogen.vim':
+    command => "/usr/bin/curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim",
+    creates => "${vim}/autoload/pathogen.vim",
+  }
+
+  file { "${vim}/autoload/pathogen.vim":
+    mode    => 0755,
+    require => Exec["retrieve_pathogen.vim"],
+  }
+
+  # vim plugins
+  $vim_bundle = "${vim}/bundle"
+  repository { "${vim_bundle}/vim-colors-solarized":
+    ensure => 'origin/HEAD',
+    source => 'altercation/vim-colors-solarized',
+  }
+  # and many more plugins...
+```
+
+
 ## Thanks ##
 [Zach Holman](http://zachholman.com/) showed me the way with his [elegant approach](https://github.com/holman/dotfiles) to structuring and symlinking dotfiles.  I've pulled in tricks from [Mathias Bynens](https://github.com/mathiasbynens/dotfiles), [Ryan Bates](https://github.com/ryanb/dotfiles), and [Ben Alman](https://github.com/cowboy/dotfiles).  Lastly, I've spent way too much time on [GitHub](http://github.com)'s [unofficial guide to dotfiles](http://dotfiles.github.io/).
 
 ## Development ##
 
 ### Version History ###
+
+**1.0.0** (June 14, 2015)
+
+* Manage installation with boxen.
+* Move some configs to boxen.
 
 **0.2.0** (April 10, 2014)
 

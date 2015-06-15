@@ -4,9 +4,27 @@
 
 ## Boxen ##
 
-These dotfiles are installed by [my-boxen](https://github.com/smcingvale/my-boxen).  Here's the relevant snippet from `dotfiles.pp`:
+These dotfiles are installed by [my-boxen](https://github.com/smcingvale/my-boxen).  Most of the set-up is performed in [dotfiles.pp](https://github.com/smcingvale/my-boxen/blob/master/modules/people/manifests/smcingvale/dotfiles.pp).  Here's some relevant snippets:
 
 ```Puppet
+class people::smcingvale::dotfiles {
+  $home         = "/Users/${::boxen_user}"
+  $dotfiles_dir = "${::boxen_srcdir}/dotfiles"
+
+  repository { $dotfiles_dir:
+    ensure => 'origin/HEAD',
+    source => "${::github_login}/dotfiles",
+  }
+
+  #...
+
+  file { "${home}/.vimrc":
+    ensure  => link,
+    target  => "${dotfiles_dir}/vim/vimrc.symlink",
+    require => Repository[$dotfiles_dir],
+  }
+
+  #...
   # setup .vim and vim plugins
   $vim = "${home}/.vim"
   file { [
@@ -36,8 +54,6 @@ These dotfiles are installed by [my-boxen](https://github.com/smcingvale/my-boxe
   }
   # and many more plugins...
 ```
-
-
 ## Thanks ##
 [Zach Holman](http://zachholman.com/) showed me the way with his [elegant approach](https://github.com/holman/dotfiles) to structuring and symlinking dotfiles.  I've pulled in tricks from [Mathias Bynens](https://github.com/mathiasbynens/dotfiles), [Ryan Bates](https://github.com/ryanb/dotfiles), and [Ben Alman](https://github.com/cowboy/dotfiles).  Lastly, I've spent way too much time on [GitHub](http://github.com)'s [unofficial guide to dotfiles](http://dotfiles.github.io/).
 

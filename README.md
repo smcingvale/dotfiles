@@ -6,7 +6,7 @@
 
 These dotfiles are installed by [my-boxen](https://github.com/smcingvale/my-boxen).  Here's the relevant snippet from `dotfiles.pp`:
 
-```
+```Puppet
   # setup .vim and vim plugins
   $vim = "${home}/.vim"
   file { [

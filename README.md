@@ -41,11 +41,6 @@ class people::smcingvale::dotfiles {
     creates => "${vim}/autoload/pathogen.vim",
   }
 
-  file { "${vim}/autoload/pathogen.vim":
-    mode    => 0755,
-    require => Exec["retrieve_pathogen.vim"],
-  }
-
   # vim plugins
   $vim_bundle = "${vim}/bundle"
   repository { "${vim_bundle}/vim-colors-solarized":

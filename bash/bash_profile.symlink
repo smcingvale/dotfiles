@@ -4,6 +4,9 @@ export DOTFILES=~/Gits/dotfiles
 # shortcut to gits folder
 export GITS=~/Gits
 
+# set JAVA_HOME because boxen is lazy
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 # don't put duplicate lines in the history
 # don't overwrite GNU Midnight Commander's setting of 'ignorespare'
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
